@@ -1,0 +1,13 @@
+library(maptools)
+xx <- readShapePoly(system.file("shapes/sids.shp", package="maptools")[1], IDvar="FIPSNO", proj4string=CRS("+proj=longlat +ellps=clrk66"))
+plot(xx, border="blue", axes=TRUE, las=1)
+
+xy <- readShapeSpatial("C:/Users/h139263/Documents/Stanford/STATS290/Gas Pipe/NaturalGas_Pipelines_US_201606.shp")
+
+
+library(ggmap)
+mapImage <- get_map(location = c(lon = -118, lat = 37.5),
+                    color = "color",
+                    source = "osm",
+                    # maptype = "terrain",
+                    zoom = 6)
